@@ -7,7 +7,7 @@ import MarketingDashboard from '../views/MarketingDashboard.vue'
 const routes = [
   {
     path: '/',
-    name: 'HomePage',
+    name: 'Home',
     component: HomePage
   },
   {
