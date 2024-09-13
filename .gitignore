@@ -1,0 +1,18 @@
+# Backend
+node_modules/
+dist/
+.env
+*.log
+
+# Frontend
+src/frontend/node_modules
+src/frontend/dist
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
