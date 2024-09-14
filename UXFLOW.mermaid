@@ -1,0 +1,30 @@
+graph TD
+    A[Start: User Inputs Idea] -->|Generate Options| B[Brainstorm 5 Presentation Ideas]
+    B --> C{Choose Direction}
+    C -->|Option 1| D1[Project Type 1]
+    C -->|Option 2| D2[Project Type 2]
+    C -->|Option 3| D3[Project Type 3]
+    C -->|Option 4| D4[Project Type 4]
+    C -->|Option 5| D5[Project Type 5]
+    D1 --> E[Create Initial Content]
+    D2 --> E
+    D3 --> E
+    D4 --> E
+    D5 --> E
+    E -->|Submit for AI Enhancement| F[AI Enhances Content]
+    F --> G[Evaluate Content]
+    G --> H{Score >= 9?}
+    H -->|No| I[Display Suggestions]
+    I --> J{User Choice}
+    J -->|Rewrite| E
+    H -->|Yes| K[Finalize Content]
+    J -->|Accept| K
+    K --> L[Marketing Analysis]
+    L --> M[Identify 3 Personas]
+    M --> N{User Satisfied?}
+    N -->|No| O[Redo Analysis]
+    O --> L
+    N -->|Yes| P[Prepare Marketing Materials]
+    P --> Q[Generate Social Media Posts]
+    Q --> R[Final Review]
+    R --> S[Publish]

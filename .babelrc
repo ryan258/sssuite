@@ -1,4 +1,3 @@
-module.exports = {
-    requireConfigFile: false,
-      presets: ["@babel/preset-env"]
-};
+{
+  "presets": ["@babel/preset-env"]
+}
