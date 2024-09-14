@@ -37,7 +37,7 @@ Our platform is built on a modular, "Lego-like" architecture using Node.js and T
 - **Backend**: Node.js with Express.js
 - **Language**: TypeScript
 - **AI Integration**: Customizable (currently supports Llama, expandable to GPT-4, Claude, etc.)
-- **Frontend** (planned): React.js or Vue.js
+- **Frontend** : Vue.js
 - **Database** (planned): MongoDB or PostgreSQL
 - **Testing**: Jest
 - **Deployment**: Docker and Kubernetes (planned)
