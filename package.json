@@ -1,11 +1,12 @@
 {
   "name": "sssuite",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "AI Story Creator and Marketing Helper",
+  "main": "dist/backend/server.js",
   "scripts": {
-    "start": "node src/backend/server.js",
-    "server": "nodemon src/backend/server.js",
+    "start": "node dist/backend/server.js",
+    "build": "tsc",
+    "server": "nodemon --exec ts-node src/backend/server.ts",
     "client": "npm run serve --prefix src/frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "jest"
@@ -14,7 +15,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "axios": "^1.7.7",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "mongoose": "^8.6.2"
   },
@@ -27,6 +32,7 @@
     "jest": "^29.7.0",
     "nodemon": "^3.1.4",
     "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
     "typescript": "^5.6.2"
   }
 }

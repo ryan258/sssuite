@@ -12,29 +12,50 @@
           rows="4"
         ></textarea>
       </div>
-      <button type="submit">✨ Generate Story</button>
+      <button type="submit" :disabled="isGenerating">✨ Generate Story</button>
     </form>
     <div v-if="generatedStory" class="generated-story">
       <h3>Your Generated Story:</h3>
       <p>{{ generatedStory }}</p>
     </div>
+    <div v-if="error" class="error-message">
+      <p>{{ error }}</p>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'StoryCreator',
   data() {
     return {
       storyIdea: '',
-      generatedStory: ''
+      generatedStory: '',
+      isGenerating: false,
+      error: ''
     }
   },
   methods: {
     async generateStory() {
-      // TODO: Implement API call to backend for story generation
-      // For now, we'll use a placeholder response
-      this.generatedStory = `Here's a story based on your idea: "${this.storyIdea}".\n\nOnce upon a time, in a magical forest...`;
+      this.isGenerating = true;
+      this.error = '';
+      this.generatedStory = '';
+      try {
+        console.log('Sending request to generate story...');
+        const response = await axios.post('http://localhost:3000/api/stories/generate', { prompt: this.storyIdea });
+        console.log('Received response:', response.data);
+        this.generatedStory = response.data.story;
+      } catch (error) {
+        console.error('Error generating story:', error);
+        this.error = `Oops! Something went wrong while creating your story. Please try again. Error: ${error.message}`;
+        if (error.response) {
+          console.error('Error response:', error.response.data);
+        }
+      } finally {
+        this.isGenerating = false;
+      }
     }
   }
 }
@@ -89,5 +110,10 @@ button:hover {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
 }
 </style>
